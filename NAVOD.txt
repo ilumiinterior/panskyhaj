@@ -1,0 +1,69 @@
+Čo vzniklo
+Samostatný Vite + React projekt s jedným znovupoužiteľným komponentom <Tour> (VIEW aj EDIT v jednom):
+
+
+src/tour/
+ ├─ Tour.jsx       ← hlavný komponent (PSV viewer, prepojenie scén, flagy, edit logika)
+ ├─ FloorPlan.jsx  ← pôdorys: body miestností, klik = prechod
+ ├─ Editor.jsx     ← EDIT panel (len pre teba)
+ ├─ tourData.js    ← načítanie/normalizácia/export tour.json
+ └─ tour.css
+public/tours/demo/
+ ├─ tour.json      ← „mozog" prehliadky (ukážka)
+ └─ README.md      ← návod, kam dať obrázky
+src/App.jsx        ← demo obal (na reálnom webe netreba)
+Engine: Photo Sphere Viewer 5.14 + virtual-tour plugin (scény, flagy, fade prechody, prednačítanie susedných scén) + markers plugin. Pôdorys je vlastný odľahčený overlay.
+
+Ako to vyskúšať (1 vec musíš dodať — obrázky)
+Demo tour.json odkazuje na obyvacka.jpg, kuchyna.jpg, spalna.jpg a podorys.png, ktoré tam zatiaľ nie sú. Takže:
+
+Hoď svoje equirectangular .jpg (napr. ten z UE5) do public/tours/demo/ a pomenuj ich podľa tour.json (alebo uprav názvy v JSON).
+npm run dev → otvor http://localhost:5173
+VIEW: kuká prehliadka, klik na flag/bod pôdorysu = prechod.
+EDIT: otvor http://localhost:5173/?edit=1 → pridáš miestnosti, klikneš flag priamo do 360°, umiestniš body na pôdoryse, Stiahnuť tour.json → prepíšeš ním súbor.
+Workflow pri novom interiéri
+Nový priečinok public/tours/<nazov>/ → obrázky + (v edite vyrobený) tour.json → git push → Vercel nasadí. Na webe len: <Tour src="/tours/<nazov>/tour.json" />.
+
+Integrácia do tvojho Vercel webu
+Skopíruj priečinok src/tour/ do svojho projektu a vlož komponent kdekoľvek (rodič mu musí dať výšku):
+
+
+import Tour from './tour/Tour';
+<div style={{height: '80vh'}}>
+  <Tour src="/tours/byt-kosice/tour.json" />
+</div>
+EDIT režim na ostro daj edit={false} (alebo nechaj cez ?edit=1 len pre seba).
+
+Dve veci, ktoré som vedome odložil (povedz, či ich dorobiť):
+
+Blur prechod — teraz je vstavaný fade. Blur viem dorobiť ako CSS overlay počas prechodu.
+Lazy-load komponentu (kvôli 857 kB three.js) — React.lazy, aby to nezaťažovalo zvyšok webu.
+Chceš, aby som doplnil niektorú z nich, alebo najprv vyskúšaš s vlastnými obrázkami?
+
+toto je čo? npm run dev → otvor http://localhost:5173
+To je spôsob, ako si lokálne na svojom počítači spustíš a pozrieš rozpracovanú appku v prehliadači — ešte predtým, než je niekde nasadená na internete. Vysvetlím po lopate.
+
+npm run dev
+Je to príkaz, ktorý napíšeš do terminálu (príkazového riadku). Spustí tzv. vývojový server — malý program, ktorý beží na tvojom počítači a „servíruje" tú appku, čo sme spolu postavili.
+
+npm = nástroj, ktorý prišiel s Node.js (máš ho nainštalovaný, overili sme).
+run dev = spusti príkaz pomenovaný dev (je definovaný v package.json).
+Kým tento server beží, terminál je „obsadený" (vidíš v ňom logy). Zastavíš ho stlačením Ctrl + C v termináli.
+
+http://localhost:5173
+To je webová adresa, ale len pre tvoj počítač.
+
+localhost = „tento počítač" (nie internet, nikto iný to nevidí).
+5173 = číslo „dverí" (portu), na ktorých ten dev server počúva. Je to štandardný port Vite.
+Túto adresu vložíš do prehliadača (Chrome/Edge…) a uvidíš appku v akcii.
+
+Ako to celé spraviť — krok za krokom
+Otvor terminál v priečinku projektu. Najjednoduchšie: vo VS Code menu Terminal → New Terminal (automaticky je v správnom priečinku 360_WEB).
+Napíš a potvrď Enterom:
+
+npm run dev
+V termináli sa objaví riadok s adresou http://localhost:5173/ — buď na ňu klikni (s Ctrl), alebo ju skopíruj do prehliadača.
+Skončíš stlačením Ctrl + C v termináli.
+Dôležité: aby si v prehliadači reálne niečo videl (360° záber), musíš mať v priečinku public/tours/demo/ tie obrázky (napr. obyvacka.jpg). Bez nich appka nabehne, ale namiesto panorámy ukáže chybu načítania — lebo súbor s obrázkom tam ešte nie je.
+
+Chceš, aby som ti to spustil ja teraz (server vie bežať aj na pozadí) a ty len otvoríš adresu v prehliadači?

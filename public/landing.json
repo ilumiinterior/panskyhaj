@@ -1,0 +1,141 @@
+{
+  "landingEnabled": true,
+  "defaultTourSrc": "tours/demo/tour.json",
+  "mainSiteUrl": "https://www.instagram.com/ilumi.interior/",
+  "brand": {
+    "name": "Ilumi Interior",
+    "logo": "ilumi_logo.png"
+  },
+  "background": {
+    "type": "color",
+    "color": "#000000",
+    "image": ""
+  },
+  "theme": {
+    "headerBg": "#000000",
+    "accent": "#000000",
+    "cardBg": "#ffffff",
+    "cardText": "#173a5e",
+    "textColor": "#ffffff"
+  },
+  "logoHeight": 120,
+  "font": "'Montserrat', system-ui, sans-serif",
+  "blocks": [
+    {
+      "type": "text",
+      "text": "Projekt\nPánsky Háj",
+      "style": "heading",
+      "align": "center",
+      "color": "#ffffff"
+    },
+    {
+      "type": "carousel",
+      "slides": [
+        {
+          "image": "8.webp"
+        },
+        {
+          "image": "1.webp"
+        },
+        {
+          "image": "2.webp"
+        },
+        {
+          "image": "3.webp"
+        },
+        {
+          "image": "4.webp"
+        },
+        {
+          "image": "5.webp"
+        },
+        {
+          "image": "6.webp"
+        },
+        {
+          "image": "7.webp"
+        },
+        {
+          "image": "8.webp"
+        },
+        {
+          "image": "9.webp"
+        },
+        {
+          "image": "10.webp"
+        },
+        {
+          "image": "11.webp"
+        },
+        {
+          "image": "12.webp"
+        },
+        {
+          "image": "13.webp"
+        },
+        {
+          "image": "14.webp"
+        },
+        {
+          "image": "15.webp"
+        },
+        {
+          "image": "16.webp"
+        },
+        {
+          "image": "17.webp"
+        },
+        {
+          "image": "18.webp"
+        },
+        {
+          "image": "19.webp"
+        },
+        {
+          "image": "20.webp"
+        },
+        {
+          "image": "21.webp"
+        },
+        {
+          "image": "22.webp"
+        },
+        {
+          "image": "23.webp"
+        },
+        {
+          "image": "24.webp"
+        },
+        {
+          "image": "25.webp"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "title": "360° Prehliadka",
+      "items": [
+        {
+          "id": "byt-3",
+          "title": "Byt 1",
+          "meta": "",
+          "image": "7.webp",
+          "tourSrc": "tours/demo/tour.json"
+        }
+      ]
+    },
+    {
+      "type": "docs",
+      "title": "Dokumentácia",
+      "titleColor": "#ffffff",
+      "items": [
+        {
+          "id": "doc-ms6ancu2-10",
+          "label": "Dokument",
+          "file": "Pánsky Háj.pdf",
+          "image": "stavebne.png"
+        }
+      ]
+    }
+  ]
+}

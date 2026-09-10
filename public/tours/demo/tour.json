@@ -1,0 +1,241 @@
+{
+  "name": "Vzorový byt",
+  "startNodeId": "predsien",
+  "variants": [
+    {
+      "id": "den",
+      "label": "Deň",
+      "suffix": ""
+    },
+    {
+      "id": "svetla",
+      "label": "Deň + svetlá",
+      "suffix": "_svetla"
+    },
+    {
+      "id": "noc",
+      "label": "Noc",
+      "suffix": "_noc"
+    }
+  ],
+  "defaultVariant": "den",
+  "floorplan": {
+    "image": "podorys.png",
+    "rooms": [
+      {
+        "nodeId": "predsien",
+        "x": 0.9025,
+        "y": 0.5505,
+        "label": "Predsieň"
+      },
+      {
+        "nodeId": "schodisko",
+        "x": 0.7326,
+        "y": 0.5655,
+        "label": "Schodisko"
+      },
+      {
+        "nodeId": "kuchyna",
+        "x": 0.5556,
+        "y": 0.5134,
+        "label": "Kuchyňa"
+      },
+      {
+        "nodeId": "linka",
+        "x": 0.566,
+        "y": 0.7621,
+        "label": "Linka"
+      },
+      {
+        "nodeId": "jedalensky-stol",
+        "x": 0.3785,
+        "y": 0.6117,
+        "label": "Jedálenský stôl"
+      },
+      {
+        "nodeId": "obyvacka",
+        "x": 0.0938,
+        "y": 0.5076,
+        "label": "Obývačka"
+      },
+      {
+        "nodeId": "spalna",
+        "x": 0.7257,
+        "y": 0.3052,
+        "label": "Spálňa"
+      },
+      {
+        "nodeId": "satnik",
+        "x": 0.8854,
+        "y": 0.1779,
+        "label": "Šatník"
+      },
+      {
+        "nodeId": "kupelna",
+        "x": 0.9132,
+        "y": 0.2936,
+        "label": "Kúpeľňa"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "predsien",
+      "name": "Predsieň",
+      "panorama": "1_predsien.webp",
+      "comment": {
+        "enabled": false,
+        "mode": "audio",
+        "audio": "C_1.mp3"
+      },
+      "links": [
+        {
+          "nodeId": "schodisko",
+          "yaw": 4.7979,
+          "pitch": -0.4282
+        }
+      ]
+    },
+    {
+      "id": "schodisko",
+      "name": "Schodisko",
+      "panorama": "2_schodisko.webp",
+      "links": [
+        {
+          "nodeId": "kuchyna",
+          "yaw": 4.621,
+          "pitch": -0.4729
+        },
+        {
+          "nodeId": "spalna",
+          "yaw": 6.0745,
+          "pitch": -0.5739
+        },
+        {
+          "nodeId": "predsien",
+          "yaw": 1.4898,
+          "pitch": -0.4612
+        }
+      ]
+    },
+    {
+      "id": "kuchyna",
+      "name": "Kuchyňa",
+      "panorama": "3_ostrovcek.webp",
+      "links": [
+        {
+          "nodeId": "linka",
+          "yaw": 2.9473,
+          "pitch": -0.6002
+        },
+        {
+          "nodeId": "jedalensky-stol",
+          "yaw": 4.4687,
+          "pitch": -0.6563
+        },
+        {
+          "nodeId": "schodisko",
+          "yaw": 1.4709,
+          "pitch": -0.8282
+        }
+      ]
+    },
+    {
+      "id": "linka",
+      "name": "Linka",
+      "panorama": "4_linka.webp",
+      "links": [
+        {
+          "nodeId": "kuchyna",
+          "yaw": 0.0247,
+          "pitch": -0.6577
+        },
+        {
+          "nodeId": "jedalensky-stol",
+          "yaw": 4.7028,
+          "pitch": -0.5823
+        }
+      ]
+    },
+    {
+      "id": "jedalensky-stol",
+      "name": "Jedálenský stôl",
+      "panorama": "5_stol.webp",
+      "links": [
+        {
+          "nodeId": "kuchyna",
+          "yaw": 1.4338,
+          "pitch": -0.5419
+        },
+        {
+          "nodeId": "linka",
+          "yaw": 2.5231,
+          "pitch": -0.6138
+        },
+        {
+          "nodeId": "obyvacka",
+          "yaw": 4.666,
+          "pitch": -0.9896
+        }
+      ]
+    },
+    {
+      "id": "obyvacka",
+      "name": "Obývačka",
+      "panorama": "6_obyvacka.webp",
+      "links": [
+        {
+          "nodeId": "jedalensky-stol",
+          "yaw": 1.4504,
+          "pitch": -0.5728
+        }
+      ]
+    },
+    {
+      "id": "spalna",
+      "name": "Spálňa",
+      "panorama": "7_spalna.webp",
+      "links": [
+        {
+          "nodeId": "schodisko",
+          "yaw": 3.0005,
+          "pitch": -0.695
+        },
+        {
+          "nodeId": "satnik",
+          "yaw": 0.5884,
+          "pitch": -0.6884
+        }
+      ]
+    },
+    {
+      "id": "satnik",
+      "name": "Šatník",
+      "panorama": "8_satnik.webp",
+      "links": [
+        {
+          "nodeId": "kupelna",
+          "yaw": 2.4261,
+          "pitch": -0.7051
+        },
+        {
+          "nodeId": "spalna",
+          "yaw": 4.9424,
+          "pitch": -0.3874
+        }
+      ]
+    },
+    {
+      "id": "kupelna",
+      "name": "Kúpeľňa",
+      "panorama": "9_kupelna.webp",
+      "links": [
+        {
+          "nodeId": "satnik",
+          "yaw": 5.9016,
+          "pitch": -0.3712
+        }
+      ]
+    }
+  ]
+}
