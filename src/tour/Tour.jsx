@@ -106,6 +106,7 @@ export default function Tour({ src, edit = false }) {
         viewer = new Viewer({
           container: containerRef.current,
           defaultZoomLvl: 0,
+          moveSpeed: 2,
           // 'gyroscope' = tlačidlo na zapnutie ovládania pohybom telefónu (mobil).
           // Na zariadeniach bez senzora sa tlačidlo automaticky skryje.
           navbar: ['zoom', 'gyroscope', 'fullscreen'],
