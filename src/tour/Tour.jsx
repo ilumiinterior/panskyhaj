@@ -11,7 +11,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Viewer } from '@photo-sphere-viewer/core';
 import { VirtualTourPlugin } from '@photo-sphere-viewer/virtual-tour-plugin';
 import { MarkersPlugin } from '@photo-sphere-viewer/markers-plugin';
-import { GyroscopePlugin } from '@photo-sphere-viewer/gyroscope-plugin';
+import PersistentGyroscopePlugin from './PersistentGyroscopePlugin.js';
 import '@photo-sphere-viewer/core/index.css';
 import '@photo-sphere-viewer/markers-plugin/index.css';
 
@@ -111,7 +111,7 @@ export default function Tour({ src, edit = false }) {
           navbar: ['zoom', 'gyroscope', 'fullscreen'],
           plugins: [
             MarkersPlugin,
-            GyroscopePlugin,
+            [PersistentGyroscopePlugin, { touchmove: true }],
             [
               VirtualTourPlugin,
               {
